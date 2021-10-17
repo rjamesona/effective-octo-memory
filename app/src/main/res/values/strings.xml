@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Coding Challenge</string>
+    <string name="title_blog">Blog</string>
+    <string name="title_map">Map</string>
+    <string name="title_article">Article</string>
+    <string name="article_image">Article Image</string>
+    <string name="example_title">Example application</string>
+    <string name="example_description">Description</string>
+    <string name="article_poster">Article poster</string>
+    <string name="oldValue">https://bv-content.beenverified.com/fit-in/60x0/filters:autojpg()</string>
+    <string name="newValue">https://bv-content.beenverified.com</string>
+    <string name="article_title">Article Title</string>
+</resources>

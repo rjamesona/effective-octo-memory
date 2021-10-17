@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_blog">
+
+    <fragment
+        android:id="@+id/navigation_blog"
+        android:name="codes.robertjameson.codingchallenge.ui.blog.BlogFragment"
+        android:label="@string/title_blog"
+        tools:layout="@layout/fragment_blog">
+        <action
+            android:id="@+id/action_navigation_blog_to_navigation_article"
+            app:destination="@id/navigation_article"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_navigation_blog_to_mapActivity"
+            app:destination="@id/navigation_map" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_article"
+        android:name="codes.robertjameson.codingchallenge.ui.article.ArticleFragment"
+        android:label="@string/title_article"
+        tools:layout="@layout/fragment_article" />
+    <activity
+        android:id="@+id/navigation_map"
+        android:name="codes.robertjameson.codingchallenge.activity.MapActivity"
+        android:label="@string/title_map" />
+</navigation>
