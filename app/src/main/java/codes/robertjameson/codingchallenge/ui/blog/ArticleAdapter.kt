@@ -1,4 +1,4 @@
-package codes.robertjameson.codingchallenge.utils
+package codes.robertjameson.codingchallenge.ui.blog
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -26,8 +26,8 @@ import java.net.URL
 class ArticleAdapter(private val context: Context, private val articles: List<Article>) :
     RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
 
+    // Going to use a recycler view to reuse the same list items in the UI to save resources
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         val articleTitle: TextView = itemView.findViewById(R.id.articleTitle)
         val imageView: ImageView = itemView.findViewById(R.id.articleImage)
         val articleDescription: TextView = itemView.findViewById(R.id.articleDescription)
@@ -55,13 +55,14 @@ class ArticleAdapter(private val context: Context, private val articles: List<Ar
         return holder
     }
 
+    // Load new articles while scrolling thorough the list
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val article: Article = articles[position]
         val titleTextView = viewHolder.articleTitle
         titleTextView.text = article.title
         val descriptionTextView = viewHolder.articleDescription
         descriptionTextView.text = article.description
-
+        // Fetch the article image
         CoroutineScope(Dispatchers.Main).launch {
             val imageView = viewHolder.imageView
             imageView.setImageBitmap(getThumbnail(article.image))
@@ -90,6 +91,7 @@ class ArticleAdapter(private val context: Context, private val articles: List<Ar
                 context,
                 R.drawable.ic_launcher_background
             )
+            //
             bitmap = drawable!!.toBitmap(width = 60, height = 60, config = null)
         }
         return bitmap

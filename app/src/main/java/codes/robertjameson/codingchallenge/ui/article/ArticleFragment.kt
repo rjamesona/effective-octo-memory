@@ -31,6 +31,7 @@ class ArticleFragment : Fragment() {
         _binding = FragmentArticleBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        // Load the article into a webview fragment inside the app
         val webViewArticle: WebView = binding.webViewArticle
         articleViewModel.text.observe(viewLifecycleOwner, {
             val article = arguments?.get("article") as Article

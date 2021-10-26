@@ -17,7 +17,7 @@ class BlogViewModel : ViewModel() {
         var articles: List<Article>
         CoroutineScope(Dispatchers.Main).launch {
             withContext(Dispatchers.IO) {
-                articles = loadArticles()
+                articles = fetchArticles()
             }
             value = articles
         }
@@ -25,7 +25,7 @@ class BlogViewModel : ViewModel() {
     val articles: MutableLiveData<List<Article>> = _articles
 
     // Load articles from URL and into local data objects
-    private fun loadArticles(): List<Article> {
+    private fun fetchArticles(): List<Article> {
         val articleArray = mutableListOf<Article>()
         val url = URL("https://www.beenverified.com/articles/index.mobile-android.json")
         val jsonObject = JSONObject(url.readText())

@@ -1,16 +1,13 @@
 package codes.robertjameson.codingchallenge.ui.blog
 
-import android.Manifest
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import codes.robertjameson.codingchallenge.databinding.FragmentBlogBinding
-import codes.robertjameson.codingchallenge.utils.ArticleAdapter
 
 
 class BlogFragment : Fragment() {
@@ -30,6 +27,7 @@ class BlogFragment : Fragment() {
         blogViewModel =
             ViewModelProvider(this).get(BlogViewModel::class.java)
 
+        // Load the articles using an article adapter
         _binding = FragmentBlogBinding.inflate(inflater, container, false)
         val root: View = binding.root
         blogViewModel.articles.observe(viewLifecycleOwner, {
